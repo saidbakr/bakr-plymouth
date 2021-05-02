@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=bakr-plymouth-theme
+Description=Forked from KUBUNTU-6.10-BOOT-SPLASH-PORT ver. 1.0.0
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/bakr-plymouth-theme
+ScriptFile=/usr/share/plymouth/themes/bakr-plymouth-theme.script
