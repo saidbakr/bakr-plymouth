@@ -5,4 +5,5 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/bakr-plymouth-theme
-ScriptFile=/usr/share/plymouth/themes/bakr-plymouth-theme.script
+ScriptFile=/usr/share/plymouth/themes/bakr-plymouth-theme/bakr-plymouth-theme.script
+
