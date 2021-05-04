@@ -18,3 +18,5 @@ After running the `INSTALL.sh` script, you should edit the `bakr-plymouth-theme.
 
 ![Screenshot](bakr-plymouth-theme/screenshot3.png "Screenshot preview!")
 
+## Notice: Boot log render is a copy & paste from COGWHEEL-A-SPINNER-LOG-PGR-2-INVERSION_V1.0_PLYMOUTH-THEME
+
