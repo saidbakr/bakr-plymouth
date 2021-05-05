@@ -18,5 +18,19 @@ After running the `INSTALL.sh` script, you should edit the `bakr-plymouth-theme.
 
 ![Screenshot](bakr-plymouth-theme/screenshot3.png "Screenshot preview!")
 
-## Notice: Boot log render is a copy & paste from COGWHEEL-A-SPINNER-LOG-PGR-2-INVERSION_V1.0_PLYMOUTH-THEME
+# Features
+* Show custom message could be set from the script file before installation or using ``sudo update-alternatives --config default.plymouth && sudo update-initramfs -u` after instlltion.
+* Digital number of loading percentage
+* Elabesd loading time in seconds.
+* Latest 19 boot log entries from top to bottom.
+
+# For developers
+You may have to install `plymouthd` and `plymouth-x11` for testing and debuging without need to restart the system nor applying `update-initramfs` using the following bash command or something like it:
+```
+sudo plymouthd ; sudo plymouth --show-splash;sudo plymouth ask-for-password --prompt "Enter Password: " |$(read -s;if [$REPLAY == "y"]then true fi); for ((I=0; I<10; I++)); do sleep 1 ; sudo plymouth --update="Boot Log Test $(date)"$I ; done ;sudo plymouth --quit
+```
+
+
+## Notice:
+Boot log render is modified from COGWHEEL-A-SPINNER-LOG-PGR-2-INVERSION_V1.0_PLYMOUTH-THEME
 
