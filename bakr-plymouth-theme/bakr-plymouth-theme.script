@@ -2,7 +2,8 @@
  * Theme Name: KUBUNTU-6.10-BOOT-SPLASH-PORT                                     *
  * Version: 1.0.0                                                                *
  * Description: Port of the original Kubuntu 6.10 boot splash for Plymouth       *
- * Author: DUKE93                                                                *
+ * Author: DUKE93   
+ * Modified: Said Bakr https://github.com/saidbakr/bakr-plymouth
  * Date: 23.04.2021                                                              *
  * License: This program is free software: you can redistribute it and/or modify *
  * it under the terms of the GNU General Public License as published by          *
@@ -64,11 +65,7 @@ else {
 	factor = screen_width / background_image.GetWidth();
 	
 }
-/*scaled = background_image.Scale(background_image.GetWidth() * factor, background_image.GetHeight() * factor);
-background_sprite = Sprite(scaled);
-background_sprite.SetX(screen_x + screen_width / 2 - scaled.GetWidth() / 2);
-background_sprite.SetY(screen_y + screen_height / 2 - scaled.GetHeight() / 2);*/
-//*******************// растянуть на весь экран
+
 background.image = background_image.Scale(Window.GetWidth() , Window.GetHeight());
 background.sprite = SpriteNew();
 background.sprite.SetImage(background.image);
@@ -328,18 +325,6 @@ Plymouth.SetMessageFunction(display_message_callback);
 ################################################################################
 
 ##################################### LOG ######################################
-/*message_sprite=SpriteNew();
-
-fun message_callback (prompt) {
- message = Image.Text(prompt, 1.0, 1.0, 1.0);
- message_sprite.SetImage(message);
-// message_sprite.SetPosition(Window.GetX() + (Window.GetWidth() - message.GetWidth()) / 2, Window.GetY() + Window.GetHeight() * 0.93, 9);
- message_sprite.SetPosition(Window.GetX() + (Window.GetWidth() - message.GetWidth()) / 2, Window.GetY() + Window.GetHeight() * 0.93, 9);
- message_sprite.SetOpacity(1);
-}
-
-Plymouth.SetMessageFunction(message_callback);
-Plymouth.SetUpdateStatusFunction(scroll_message_callback);*/
 
 NUM_SCROLL_LINES=19; //количество строк лога
 LINE_WIDTH=9999; //ширина строк лога
@@ -350,7 +335,7 @@ fun message_callback (prompt) {
  message = Image.Text(prompt, 10, 50, 240, 1, "Fixed");
  message_sprite.SetImage(message);
 // message_sprite.SetPosition(Window.GetX() + (Window.GetWidth() - message.GetWidth()) / 2, Window.GetY() + Window.GetHeight() * 0.93, 9);
- message_sprite.SetPosition(Window.GetX() + (Window.GetWidth() - message.GetWidth()) / 2, Window.GetY() + Window.GetHeight() * 0.93, 9);
+ message_sprite.SetPosition(Window.GetX() + (Window.GetWidth() - message.GetWidth()) / 2, Window.GetHeight(), 9);
  message_sprite.SetOpacity(1);
 }
 
@@ -363,7 +348,7 @@ for (i=0; i < NUM_SCROLL_LINES; i++) {
   lines[i]= Image.Text("", 30, 255, 0, 1, "Fixed"); //цвет строк
   message_sprite[i] = SpriteNew();
   //message_sprite[i].SetPosition(screen_width / 5, (screen_height / 1.50) + (i * 16), 9);
-  message_sprite[i].SetPosition(15, (screen_height / 1.50) + (i * 17), 9);
+  message_sprite[i].SetPosition(25, (Window.GetHeight()) - (i/2 * 30), 9);
 }                                    //высота строк           //отступ строк
 
 
