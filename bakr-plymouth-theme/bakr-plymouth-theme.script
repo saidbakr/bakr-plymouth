@@ -370,7 +370,7 @@ fun scroll_message_callback(text) {
      text += "...";
    }
    // Prepend the line number
-   text = " "+lineNum+"-"+text;
+   text = ">>"+lineNum+"-"+text;
    lineNum++;
 
 //  Shift message one up
