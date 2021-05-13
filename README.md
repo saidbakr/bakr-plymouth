@@ -23,6 +23,7 @@ After running the `INSTALL.sh` script, you should edit the `bakr-plymouth-theme.
 * Digital number of loading percentage
 * Elabesd loading time in seconds.
 * Latest 19 boot log entries from top to bottom.
+* Boot log entries in numbered list.
 
 # For developers
 You may have to install `plymouthd` and `plymouth-x11` for testing and debuging without need to restart the system nor applying `update-initramfs` using the following bash command or something like it:

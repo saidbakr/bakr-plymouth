@@ -360,8 +360,8 @@ fun StringLength(string) {
   return index;
 }
 
-
-
+//Line numbers container
+lineNum = 1;
 fun scroll_message_callback(text) {
 
 //  Truncate the message if too long
@@ -369,6 +369,9 @@ fun scroll_message_callback(text) {
      text = text.SubString(0, LINE_WIDTH - 3);
      text += "...";
    }
+   // Prepend the line number
+   text = " "+lineNum+"-"+text;
+   lineNum++;
 
 //  Shift message one up
    for (i = 0; i < NUM_SCROLL_LINES - 1; i++) {
