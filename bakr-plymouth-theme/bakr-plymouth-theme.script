@@ -73,7 +73,7 @@ background.sprite.SetPosition(Window.GetX(), Window.GetY(), 0);
 ################################################################################
 
 ################################# BACKDROP #####################################
-backdrop = Image("usplash_1024_768.png");
+backdrop = Image("blank_1024_768.png");
 boot = Sprite(backdrop);
 boot.SetOpacity(1); // hidden for now
 //boot_x = Window.GetWidth() / 2.1  -  backdrop.GetWidth() / 2.45;
@@ -84,13 +84,14 @@ boot.SetPosition( boot_x, boot_y, 1);
 ################################################################################
 
 ################################## LOGO ########################################
-Window.SetBackgroundTopColor(0, 0, 0);
-Window.SetBackgroundBottomColor(0, 0, 0);
+Window.SetBackgroundTopColor(0, 0, 1);
+Window.SetBackgroundBottomColor(0, 0, 1);
 
-logo.image = Image("SYSTEM-LOGO.PNG");
+logo.image = Image("distro_logo.png");
 logo.sprite = Sprite(logo.image);
-logo.sprite.SetX (boot_x + backdrop.GetWidth()/2 - logo.image.image.GetWidth()/2);
-logo.sprite.SetY (Window.GetHeight() / 1 - logo.image.GetHeight() / 0.65);
+logo.sprite.SetX (Window.GetWidth ()  / 2 - logo.sprite.GetImage().GetWidth()  / 2);
+logo.sprite.SetY (Window.GetHeight()*0.20);
+logo.sprite.SetZ(3000);
 logo.opacity_angle = 0;
 ################################################################################
 
@@ -205,7 +206,7 @@ fun progress_callback (duration, progress)
   
   fun timeelabsed_callback(duration)
   {
-      time_elabse = Image.Text("Elapsed "+Math.Int(duration)+" seconds",255,255,0,1,"Fixed");
+      time_elabse = Image.Text("Elapsed "+Math.Int(duration)+" seconds",255*Math.Sin(duration),255*Math.Cos(duration),255,1,"Fixed");
       time_elabse_sp = Sprite(time_elabse);
       time_elabse_sp.SetPosition(progress_text.x, progress_text.y+20,1000);
 }
